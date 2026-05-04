@@ -2,11 +2,12 @@ from ui.windows.chat_window import ChatWindow
 from ui.windows.capture_window import CaptureWindow
 from ui.windows.text_window import TextWindow
 
-from core.llm_client import LLMClient
-from core.llm_worker import LLMWorker
-from core.capture_service import CaptureService, ContextStreamWorker
-from core.textract_ocr import TextractOCR
-from core.vector_store import FaissVectorStore
+from core.llm.llm_client import LLMClient
+from core.llm.llm_worker import LLMWorker
+from core.capture.capture_service import CaptureService
+from core.capture.context_stream_worker import ContextStreamWorker
+from core.ocr.textract_ocr import TextractOCR
+from core.vector_db.vector_store import FaissVectorStore
 
 class AppController:
     def __init__(self):
