@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (
     QVBoxLayout, QLineEdit, QPushButton, QHBoxLayout,
     QComboBox, QWidget, QLabel, QScrollArea,
-    QSizePolicy
+    QSizePolicy, QApplication
 )
 from PyQt5.QtCore import Qt, QTimer, pyqtSignal
 
@@ -258,3 +258,8 @@ class ChatWindow(FloatingWindow):
         self.add_message(f"Error: {error_msg}", sender="assistant")
 
         self.input.setEnabled(True)
+
+    def closeEvent(self, event):
+        # This app controls everything if destroyed the program ends
+        QApplication.quit()
+        event.accept()
