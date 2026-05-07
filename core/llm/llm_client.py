@@ -4,15 +4,18 @@ from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, ToolMessage
 from core.tools.tool_registry import registry
 import core.tools # Leave import as it is loading tools
+from config.loader import load_config
 import json
-
-BASE_DIR = Path(__file__).resolve().parents[1]
-PROMPTS_DIR = BASE_DIR / "prompts"
-
-MODEL = "gemma4:31b-cloud"
 
 class LLMClient:
     def __init__(self):
+
+        BASE_DIR = Path(__file__).resolve().parents[2]
+        PROMPTS_DIR = BASE_DIR / "prompts"
+
+        config = load_config()
+        MODEL = config["integrations"]["ollama"]["model"]  # "gemma4:31b-cloud"
+
         self.env = Environment(
             loader=FileSystemLoader(str(PROMPTS_DIR)),
             autoescape=select_autoescape()
