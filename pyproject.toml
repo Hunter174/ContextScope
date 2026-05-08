@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contextscope"
+version = "0.1.0"
+description = "Desktop app for screen context capture, OCR, vector search, and LLM integration"
+authors = [{name = "Hunter Paxton"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "PyQt5",
+    "jinja2",
+    "langchain-ollama",
+    "langchain-core",
+    "requests",
+    "python-dotenv",
+    "faiss-cpu",
+    "boto3",
+    "cryptography",
+    "platformdirs",
+]
+
+[project.scripts]
+contextscope = "run:main"
+
+[tool.setuptools]
+include-package-data = true
+py-modules = ["run"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = [".venv", "tests", "docs", "__pycache__"]
+
+[tool.setuptools.package-data]
+"*" = ["prompts/*.j2", "ui/styles/*.qss", "*.docx", "*.yaml", "*.yml"]
