@@ -40,3 +40,6 @@ class OllamaIntegration(BaseIntegration):
         return {
             "model": self.model
         }
+
+    def export_secrets(self):
+        return {}

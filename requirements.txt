@@ -1,0 +1,9 @@
+PyQt5
+jinja2
+langchain-ollama
+langchain-core
+requests
+python-dotenv
+faiss-cpu
+boto3
+cryptography

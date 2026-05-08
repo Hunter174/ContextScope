@@ -4,7 +4,6 @@ from app.bootstrap import bootstrap
 
 
 def parse_args():
-
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -22,11 +21,9 @@ def parse_args():
     return parser.parse_args()
 
 
-if __name__ == "__main__":
-
+def main():
     args = parse_args()
+    bootstrap(force_setup=args.setup, reset=args.reset)
 
-    bootstrap(
-        force_setup=args.setup,
-        reset=args.reset
-    )
+if __name__ == "__main__":
+    main()

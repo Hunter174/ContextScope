@@ -12,11 +12,7 @@ def reset_setup():
         CONFIG_FILE.unlink()
 
     for integration in manager.get_supported_integrations():
-
         for key in integration.secret_keys():
-
-            SecretStore.delete(
-                f"{integration.name}.{key}"
-            )
+            SecretStore.delete(f"{integration.name}.{key}")
 
     print("Configuration reset.")

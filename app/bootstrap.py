@@ -7,17 +7,13 @@ from app.main import run_app
 
 
 def bootstrap(force_setup=False, reset=False):
-
     ensure_dirs()
 
     if reset:
         print("Resetting configuration...")
         reset_setup()
 
-    needs_setup = (
-        force_setup
-        or not is_setup_complete()
-    )
+    needs_setup = (force_setup or not is_setup_complete())
 
     if needs_setup:
         print("Running setup...")
